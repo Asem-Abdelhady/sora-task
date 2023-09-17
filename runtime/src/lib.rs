@@ -46,6 +46,7 @@ use pallet_transaction_payment::{ConstFeeMultiplier, CurrencyAdapter, Multiplier
 pub use sp_runtime::BuildStorage;
 pub use sp_runtime::{Perbill, Permill};
 
+pub use pallet_erc20;
 /// Import the template pallet.
 pub use pallet_template;
 
@@ -271,6 +272,11 @@ impl pallet_sudo::Config for Runtime {
 /// Configure the pallet-template in pallets/template.
 impl pallet_template::Config for Runtime {
 	type RuntimeEvent = RuntimeEvent;
+	type WeightInfo = pallet_template::weights::SubstrateWeight<Runtime>;
+}
+
+impl pallet_erc20::Config for Runtime {
+	type RuntimeEvent = RuntimeEvent;
 }
 
 impl pallet_utility::Config for Runtime {
@@ -318,7 +324,8 @@ construct_runtime!(
 		Utility: pallet_utility,
 		Nicks: pallet_nicks,
 		// Include the custom logic from the pallet-template in the runtime.
-		SimpleERC20Token: pallet_template,
+		TemplateModule: pallet_template,
+		Erc20: pallet_erc20,
 	}
 );
 

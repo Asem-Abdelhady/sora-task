@@ -1,6 +1,6 @@
 use node_template_runtime::{
-	AccountId, AuraConfig, BalancesConfig, GrandpaConfig, RuntimeGenesisConfig, Signature,
-	SimpleERC20TokenConfig, SudoConfig, SystemConfig, WASM_BINARY,
+	AccountId, AuraConfig, BalancesConfig, Erc20Config, GrandpaConfig, RuntimeGenesisConfig,
+	Signature, SudoConfig, SystemConfig, WASM_BINARY,
 };
 use sc_service::ChainType;
 use sp_consensus_aura::sr25519::AuthorityId as AuraId;
@@ -154,7 +154,7 @@ fn testnet_genesis(
 			key: Some(root_key),
 		},
 		transaction_payment: Default::default(),
-		simple_erc20_token: SimpleERC20TokenConfig {
+		erc_20: Erc20Config {
 			total_supply: 20000000,
 			supply_owner: Some(get_account_id_from_seed::<sr25519::Public>("Alice")),
 		},

@@ -58,9 +58,6 @@ pub mod pallet {
 	pub(super) type TotalSupply<T: Config> =
 		StorageValue<_, u64, ValueQuery, TotalSupplyDefaultValue<T>>;
 
-	#[pallet::storage]
-	pub(super) type IsInitialized<T: Config> = StorageValue<_, bool, ValueQuery>;
-
 	#[pallet::hooks]
 	impl<T: Config> Hooks<BlockNumberFor<T>> for Pallet<T> {}
 
@@ -194,4 +191,3 @@ pub mod pallet {
 		}
 	}
 }
-
