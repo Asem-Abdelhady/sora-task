@@ -4742,6 +4742,7 @@ dependencies = [
  "scale-info",
  "sp-core",
  "sp-io",
+ "sp-keyring",
  "sp-runtime",
 ]
 
